@@ -26,7 +26,7 @@ public class RoleController {
         return roleService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public Role saveRole(@RequestBody Role role){
         return roleService.saveRole(role);
     }

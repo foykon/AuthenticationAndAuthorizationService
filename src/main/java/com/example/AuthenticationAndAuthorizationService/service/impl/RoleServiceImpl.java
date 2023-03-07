@@ -8,13 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 
 @Service
+
 public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository roleRepository;
-    static Logger log = Logger.getLogger(Example.class.getName());
+    private static final Logger logger = LogManager.getLogger(RoleServiceImpl.class);
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
@@ -31,8 +33,8 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role saveRole(Role role) {
+        logger.info("rol eklendi"+role.getRoleName());
         return roleRepository.save(role);
-        log.info("Role saved");
     }
 
     @Override
